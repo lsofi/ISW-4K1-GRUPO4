@@ -9,4 +9,4 @@ Participantes:
 - Muñoz, Gastón Francisco 		80384
 - Paschetti Pelatia, Jano Theo 		80195
 
-El documento de configuración se encuentra en /TPS Evaluables/PRACTICO 4 - SCM - HERRAMIENTAS DE SCM/
+El documento de configuración se encuentra en /TPS Evaluables/TP 4 - SCM - HERRAMIENTAS DE SCM/
