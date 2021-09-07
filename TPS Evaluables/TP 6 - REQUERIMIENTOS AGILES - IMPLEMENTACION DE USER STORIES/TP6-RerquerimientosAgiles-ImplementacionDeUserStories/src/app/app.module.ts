@@ -3,18 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DomicilioComponent } from './components/domicilio/domicilio.component';
-import { PagoComponent } from './components/pago/pago.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 import { EnvioPedidoComponent } from './components/envio-pedido/envio-pedido.component';
-import { MenuComponent } from './components/menu/menu.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    DomicilioComponent,
-    PagoComponent,
     EnvioPedidoComponent,
-    MenuComponent
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

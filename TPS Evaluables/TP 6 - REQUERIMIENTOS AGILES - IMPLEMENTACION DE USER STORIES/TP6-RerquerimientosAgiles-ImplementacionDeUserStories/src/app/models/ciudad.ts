@@ -11,9 +11,7 @@ export class Ciudad{
 
 export const ciudades: Ciudad[] = 
 [
-    {id: 1, nombre: 'Cordoba'},
-    {id: 2, nombre: 'Rio Cuarto'},
-    {id: 3, nombre: 'Villa Maria'},
-    {id: 4, nombre: 'Rio Ceballos'},
-    {id: 5, nombre: 'Villa Allende'},
+    {id: 1, nombre: 'Cordoba Capital'},
+    {id: 2, nombre: 'Rio Primero'},
+    {id: 3, nombre: 'Villa Carlos Paz'},
 ]
