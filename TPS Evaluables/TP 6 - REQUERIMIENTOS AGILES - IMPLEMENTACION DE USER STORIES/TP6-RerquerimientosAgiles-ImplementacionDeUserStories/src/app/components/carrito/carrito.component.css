@@ -1,0 +1,57 @@
+.fixed {
+  position: fixed;
+  top: 20px;
+}
+
+.carrito-card,
+.item-card {
+  border: 3px solid #4ea8de;
+}
+.linea{
+    border: 3px solid #56cfe1;
+    margin-top: -3px;
+}
+.item-card {
+  margin-bottom: 10px;
+}
+.comida {
+  border-radius: 28px;
+}
+.carrito {
+  font-size: 19px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+.comercio{
+    margin-left: 23px;
+    margin-top: 10px;
+}
+.com-adh{
+    margin-top: 13px;
+    margin-left: -19px;
+    font-weight: bolder;
+}
+.prod{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.precio{
+    margin-left: 141px;
+}
+
+.linea2{
+    border: 3px solid #56cfe1;
+    margin-top: 17px;
+}
+
+.envio, .total{
+    margin-left: 20px;
+}
+
+.precioEnv, .precioTot{
+    margin-left: 151px;
+}
+
+.total, .precioTot{
+    font-weight: bold;
+}

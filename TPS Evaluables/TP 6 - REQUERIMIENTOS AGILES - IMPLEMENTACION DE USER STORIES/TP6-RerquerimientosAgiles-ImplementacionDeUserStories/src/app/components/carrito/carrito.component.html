@@ -1,1 +1,41 @@
-<p>carrito works!</p>
+<div class="container-fluid fixed">
+    <div class="card carrito-card" style="width: 30rem;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-1">
+                    <img src="https://i.imgur.com/sMAF2ur.png" alt="" height="30px" width="30px">
+                </div>
+                <div class="col">
+                    <h6 class="card-subtitle mb-2 carrito">Mi carrito (3 items)</h6>
+                </div>
+            </div>
+            <div class="row comercio">
+                <div class="col-2"><img src="https://i.imgur.com/jPrfOCC.png" alt="" height="45px" width="45px"></div>
+                <div class="col">
+                    <p class="com-adh">Beers & Cheers!</p>
+                </div>
+            </div>
+            <hr class="linea">
+            <div class="card item-card" *ngFor="let item of Items">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col"><img src="{{item.img}}" alt="" height="70" width="70" class="comida"></div>
+                        <div class="col prod">{{item.nombre}}</div>
+                        <div class="col prod precio">${{item.precioUnitario}}</div>
+                        <div class="col prod"><img src="https://i.imgur.com/QDgDLAQ.png" alt="" height="30px" width="30px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="linea2">
+            <div class="row envio">
+                <div class="col">Envio</div>
+                <div class="col precioEnv">$100</div>
+            </div>
+            <div class="row total">
+                <div class="col">Total</div>
+                <div class="col precioTot">$1678</div>
+            </div>
+        </div>
+    </div>
+</div>
