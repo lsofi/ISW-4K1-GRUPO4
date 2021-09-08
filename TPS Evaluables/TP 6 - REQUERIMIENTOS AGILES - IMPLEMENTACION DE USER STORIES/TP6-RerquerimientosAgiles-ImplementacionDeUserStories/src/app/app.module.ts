@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
-import { EnvioPedidoComponent } from './envio-pedido/envio-pedido.component';
+import { EnvioPedidoComponent } from './components/envio-pedido/envio-pedido.component';
 
 
 

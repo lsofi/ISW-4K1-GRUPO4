@@ -1,17 +1,17 @@
 export class Ciudad{
-    id: number;
+    idCiudad: number;
     nombre: string;
 
-    constructor(id: number, nombre: string)
+    constructor(idCiudad: number, nombre: string)
     {
-        this.id = id;
+        this.idCiudad = idCiudad;
         this.nombre = nombre;
     }
 }
 
 export const ciudades: Ciudad[] = 
 [
-    {id: 1, nombre: 'Cordoba Capital'},
-    {id: 2, nombre: 'Rio Primero'},
-    {id: 3, nombre: 'Villa Carlos Paz'},
+    {idCiudad: 1, nombre: 'Cordoba Capital'},
+    {idCiudad: 2, nombre: 'Rio Primero'},
+    {idCiudad: 3, nombre: 'Villa Carlos Paz'},
 ]

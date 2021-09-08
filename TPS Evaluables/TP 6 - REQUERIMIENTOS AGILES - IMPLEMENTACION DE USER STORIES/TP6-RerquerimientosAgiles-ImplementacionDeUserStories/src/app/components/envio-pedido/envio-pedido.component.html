@@ -1,0 +1,123 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://i.imgur.com/nlEjazF.png" alt="" height="50px" width="150px" />
+        </a>
+        <div class="usuario">
+            <div class="row">
+                <div class="col-3"> <img src="https://i.imgur.com/2RH4PD3.png" height="45px" width="45px"
+                        class="user-img" /></div>
+                <div class="col col-usuario">
+                    <p>Ana María</p>
+                </div>
+                <div class="col-1 col-usuario"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="10"
+                        height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                            style="mix-blend-mode: normal">
+                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                            <g fill="#56cfe1">
+                                <path
+                                    d="M170.9502,51.2224l-21.5,-21.49862c-0.67887,-0.68583 -1.66569,-1.11972 -2.58252,-1.04974c-0.97282,0.01399 -1.88965,0.41989 -2.55452,1.11972l-58.31315,61.73855l-58.31315,-61.73855c-0.66488,-0.69982 -1.58171,-1.10572 -2.55453,-1.11972c-0.94482,-0.03499 -1.89665,0.36391 -2.58252,1.04974l-21.5,21.49862c-1.37874,1.37865 -1.39974,3.6041 -0.05599,5.01075l82.41667,85.99446c0.67887,0.70683 1.6097,1.10573 2.58952,1.10573c0.97982,0 1.91064,-0.3989 2.58952,-1.10573l82.41667,-85.99446c1.34375,-1.40665 1.32275,-3.63209 -0.05599,-5.01075z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div>
+        <button class="btn btn-direccion-entrega" type="button" data-bs-toggle="collapse"
+            data-bs-target="#direccionEntrega" aria-expanded="false">
+            Dirección de entrega
+        </button>
+        <div class="collapse" id="direccionEntrega">
+            <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control calle" placeholder="Calle*">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control calle" placeholder="Número*">
+                </div>
+                <div class="mb-3">
+                    <!-- <input type="text" class="form-control calle" placeholder="Ciudad*"> -->
+                    <select name="" id="">
+                        <option *ngFor="let opt of ciudades">
+                            {{opt.nombre}}
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control calle" placeholder="Teléfono*">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-direccion-entrega" type="button" data-bs-toggle="collapse" data-bs-target="#formaDePago"
+            aria-expanded="false" aria-controls="collapseExample">
+            Forma de pago
+        </button>
+        <div class="collapse" id="formaDePago">
+            <form>
+                <div class="mb-3">
+                    <input type="radio" data-bs-toggle="collapse" data-bs-target="#tarjeta" aria-expanded="false">
+                    <label for="tarjeta">Tarjeta</label>
+                    <div class="collapse" id="tarjeta">
+                        <form>
+                            <div class="mb-3">
+                                <input type="number" class="form-control calle" placeholder="Número de tarjeta*">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control calle" placeholder="Expiración mm/yy*">
+                            </div>
+                            <div class="mb-3">
+                                <input type="number" class="form-control calle" placeholder="Código de seguridad*">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control calle" placeholder="Nombre del titular*">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="radio" data-bs-toggle="collapse" data-bs-target="#efectivo" aria-expanded="false">
+                    <label for="efectivo">Efectivo</label>
+                    <div class="collapse" id="efectivo">
+                        <form>
+                            <div class="mb-3">
+                                <input type="number" class="form-control calle" placeholder="Monto a pagar">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-direccion-entrega" type="button" data-bs-toggle="collapse"
+            data-bs-target="#horarioEntrega" aria-expanded="false" aria-controls="collapseExample">
+            Horario de entrega
+        </button>
+        <div class="collapse" id="horarioEntrega">
+            <div class="card card-body">
+                <div class="mb-3">
+                    <input type="radio" data-bs-toggle="collapse" data-bs-target="#fecha-hora-perso" aria-expanded="false">
+                    <label for="fecha-hora-perso">Fecha y hora personalizado</label>
+                    <div class="collapse" id="fecha-hora-perso">
+                        lisudkhf
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="radio">
+                    <label for="">Lo antes posible</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
