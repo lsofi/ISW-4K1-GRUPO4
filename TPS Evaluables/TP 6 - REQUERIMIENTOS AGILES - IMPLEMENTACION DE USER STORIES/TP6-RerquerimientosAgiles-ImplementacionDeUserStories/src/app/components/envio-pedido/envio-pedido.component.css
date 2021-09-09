@@ -35,3 +35,10 @@
     padding-top: 15px;
     margin-left: 10px;
 }
+small{
+    color: #4EA8DE;
+}
+.pedido{
+    float: left;
+    width: 580px;
+}

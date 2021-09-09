@@ -1,8 +1,9 @@
-.fixed {
-  position: fixed;
-  top: 20px;
+.fixed{
+  float: right;
+  width: 500px;
+  margin-top: 25px;
+  margin-bottom: 30px;
 }
-
 .carrito-card,
 .item-card {
   border: 3px solid #4ea8de;
