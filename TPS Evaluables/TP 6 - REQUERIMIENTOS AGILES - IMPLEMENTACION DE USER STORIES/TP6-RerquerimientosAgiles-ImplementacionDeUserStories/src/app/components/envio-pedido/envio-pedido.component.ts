@@ -17,26 +17,28 @@ export class EnvioPedidoComponent implements OnInit {
     this.tarjetaForm = new FormGroup({
       numeroTarjeta: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[0-9]+$'),
+        Validators.pattern('4[0-9]+$'),
         Validators.minLength(16),
-        Validators.maxLength(16),
       ]),
-      fechaVencimiento: new FormControl('', [Validators.required]),
+      fechaVencimiento: new FormControl('', [Validators.required, Validators.pattern(
+        '(0[1-9]|1[012])[-/](20)[0-9]{2}'
+      ),
+      Validators.min(Date.now())] ),
       numeroCVVD: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[0-9]$'),
+        Validators.pattern('^[0-9]+$'),
         Validators.minLength(3),
-        Validators.maxLength(3),
       ]),
       nombre: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[a-zA-Z]+$'),
+        Validators.pattern('^[a-zA-Z ]+$'),
       ]),
     });
     this.debitoForm = new FormGroup({
       monto: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[0-9]$'),
+        Validators.pattern('^[0-9]+$'),
+        Validators.min(1678)
       ]),
     })
   }

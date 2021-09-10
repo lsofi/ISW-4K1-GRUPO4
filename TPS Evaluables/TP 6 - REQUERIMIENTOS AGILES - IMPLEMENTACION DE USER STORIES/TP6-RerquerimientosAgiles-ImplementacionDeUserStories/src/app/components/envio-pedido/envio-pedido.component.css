@@ -20,6 +20,20 @@
     padding-right: 360px;
     font-weight: bolder
 }
+.btn-forma-pago{
+    background-color: #72EFDD;
+    margin-top: 22px;
+    padding-left: 23px;
+    padding-right: 403px;
+    font-weight: bolder
+}
+.btn-horario-entrega{
+    background-color: #72EFDD;
+    margin-top: 22px;
+    padding-left: 23px;
+    padding-right: 376px;
+    font-weight: bolder
+}
 
 .calle{
     border-left: none;
