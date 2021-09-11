@@ -85,6 +85,7 @@ small{
 }
 #fecha{
     margin-left: 1rem;
+    margin-top: 0.5rem;
 }
 
 .calendario{
@@ -96,11 +97,15 @@ small{
 
 .hora{
     margin-left: 1rem;
+    margin-right: 0.313rem;
 }
 .time{
     margin-left: 1.5rem;
 }
 
-.time, .hora{
-    margin-top: 0.086rem;
+.btn-enviar{
+    background-color: #7400b8;
+    color: white;
+    margin-top: 1.563rem;
+    margin-left: 12.813rem;
 }
