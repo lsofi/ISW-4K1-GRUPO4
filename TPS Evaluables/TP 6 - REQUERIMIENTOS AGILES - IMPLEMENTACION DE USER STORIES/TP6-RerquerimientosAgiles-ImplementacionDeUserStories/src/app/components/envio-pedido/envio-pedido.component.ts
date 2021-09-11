@@ -54,9 +54,6 @@ export class EnvioPedidoComponent implements OnInit {
       numero: new FormControl('',[
         Validators.required,
         Validators.pattern('^[0-9]+$')
-      ]),
-      ciudad: new FormControl('',[
-        Validators.required
       ])
     })
   }

@@ -2,6 +2,10 @@
   border-bottom: 0.188rem solid #7400b8;
 }
 
+.mockNavBar{
+    padding-top: 5rem;
+}
+
 .usuario {
   margin-right: 2.188rem;
 }
@@ -16,22 +20,16 @@
 .btn-direccion-entrega{
     background-color: #72EFDD;
     margin-top: 1.375rem;
-    padding-left: 1.438rem;
-    padding-right: 22.5rem;
     font-weight: bolder
 }
 .btn-forma-pago{
     background-color: #72EFDD;
     margin-top: 1.375rem;
-    padding-left: 1.438rem;
-    padding-right: 25.188rem;
     font-weight: bolder
 }
 .btn-horario-entrega{
     background-color: #72EFDD;
     margin-top: 1.375rem;
-    padding-left: 1.438rem;
-    padding-right: 23.5rem;
     font-weight: bolder
 }
 
@@ -64,8 +62,8 @@ small{
     color: #4EA8DE;
 }
 .pedido{
-    float: left;
     width: 36.25rem;
+    margin-left: 1.5rem;
 }
 
 .btn-mapa{
@@ -108,4 +106,48 @@ small{
     color: white;
     margin-top: 1.563rem;
     margin-left: 12.813rem;
+}
+
+.time, .hora{
+    margin-top: 0.086rem;
+}
+
+@media (min-width: 1024px) and (max-width: 2560px){
+    .pedido{
+        float: left;
+    }
+
+    .btn-direccion-entrega{
+        padding-left: 1.438rem;
+        padding-right: 25.188rem;
+
+    }
+    .btn-forma-pago{
+        padding-left: 1.438rem;
+        padding-right: 25.188rem;
+    }
+    .btn-horario-entrega{
+        padding-left: 1.438rem;
+        padding-right: 23.5rem;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 0px){
+    .pedido{
+        margin: auto;
+    }
+
+    .btn-direccion-entrega{
+        padding-left: 1.438rem;
+        padding-right: 22.5rem;
+
+    }
+    .btn-forma-pago{
+        padding-left: 1.438rem;
+        padding-right: 25.188rem;
+    }
+    .btn-horario-entrega{
+        padding-left: 1.438rem;
+        padding-right: 23.5rem;
+    }
 }

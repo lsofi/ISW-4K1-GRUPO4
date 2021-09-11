@@ -1,9 +1,8 @@
 .fixed{
-  float: right;
   width: 31.25rem;
   margin-top: 1.563rem;
   margin-bottom: 1.875rem;
-  margin-right: 4.563rem;
+
 }
 .carrito-card,
 .item-card {
@@ -57,3 +56,23 @@
 .total, .precioTot{
     font-weight: bold;
 }
+
+@media (min-width: 1024px) and (max-width: 2560px)
+{
+  .fixed{
+    float: right;
+    position: fixed;
+    top: 5.5rem;
+    right: 1rem;
+    margin-right: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 0px){
+  .fixed{
+    float: none;
+    margin: auto;
+  }
+}
+
+
