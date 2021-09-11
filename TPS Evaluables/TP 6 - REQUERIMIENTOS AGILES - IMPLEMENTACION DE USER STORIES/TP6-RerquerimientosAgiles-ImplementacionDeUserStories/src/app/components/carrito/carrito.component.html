@@ -6,7 +6,7 @@
                     <img src="https://i.imgur.com/sMAF2ur.png" alt="" height="30px" width="30px">
                 </div>
                 <div class="col">
-                    <h6 class="card-subtitle mb-2 carrito">Mi carrito (3 items)</h6>
+                    <h6 id="cantItems" class="card-subtitle mb-2 carrito">Mi carrito</h6>
                 </div>
             </div>
             <div class="row comercio">
@@ -16,13 +16,13 @@
                 </div>
             </div>
             <hr class="linea">
-            <div class="card item-card" *ngFor="let item of Items">
+            <div class="card item-card" *ngFor="let item of Items" onClick="sumarItems()">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col"><img src="{{item.img}}" alt="" height="70" width="70" class="comida"></div>
-                        <div class="col prod">{{item.nombre}}</div>
-                        <div class="col prod precio">${{item.precioUnitario}}</div>
-                        <div class="col prod"><img src="https://i.imgur.com/QDgDLAQ.png" alt="" height="30px" width="30px">
+                        <div class="col"><img src="{{item.producto.img}}" alt="" height="70" width="70" class="comida"></div>
+                        <div class="col prod">{{item.producto.nombre}}</div>
+                        <div class="col prod precio">${{item.producto.precioUnitario}}</div>
+                        <div class="col prod"><button><img src="https://i.imgur.com/QDgDLAQ.png" alt="" height="30px" width="30px"></button>
                         </div>
                     </div>
                 </div>

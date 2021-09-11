@@ -12,10 +12,6 @@ export class DetalleCarrito{
         this.nota = nota;
     }
 
-    calcularSubtotal()
-    {
-        return this.producto.getPrecio() * this.cantidad;
-    }
 }
 
     

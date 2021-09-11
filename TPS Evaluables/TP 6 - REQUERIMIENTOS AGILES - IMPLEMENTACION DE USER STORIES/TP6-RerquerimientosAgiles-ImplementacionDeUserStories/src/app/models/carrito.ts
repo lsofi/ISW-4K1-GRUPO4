@@ -1,4 +1,5 @@
 import { DetalleCarrito } from "./detalle-carrito";
+import { productos } from "./producto";
 
 export class Carrito{
     detallesCarrito: DetalleCarrito[];
@@ -10,3 +11,12 @@ export class Carrito{
         this.total = total
     }
 }
+export const carrito: Carrito[] = 
+[
+    {detallesCarrito: [
+        {producto:productos[0], cantidad: 1, nota:''},
+        {producto:productos[1], cantidad: 1, nota:''},
+        {producto:productos[2], cantidad: 1, nota:''}
+    ],
+    total: 1000}
+]
