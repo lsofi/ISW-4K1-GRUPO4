@@ -38,23 +38,27 @@
       Dirección de entrega
     </button>
     <div class="collapse" id="direccionEntrega">
-      <form>
+      <form [formGroup]="direccionForm">
         <div class="mb-3">
-          <input type="text" class="form-control calle" placeholder="Calle*" />
+          <input type="text" class="form-control calle" placeholder="Teléfono*" />
         </div>
         <div class="mb-3">
-          <input type="number" class="form-control calle" placeholder="Número*" />
+          <input type="text" class="form-control calle" placeholder="Calle*" id="calle"/>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control calle" placeholder="Número*" id="numero"/>
         </div>
         <div class="mb-3">
           <!-- <input type="text" class="form-control calle" placeholder="Ciudad*"> -->
-          <select class="form-select form-control calle" name="" id="">
-            <option *ngFor="let opt of ciudades">
+          <select class="form-select form-control ciudad" id="ciudad">
+            <option *ngFor="let opt of ciudades" value="{{opt.nombre}}">
               {{ opt.nombre }}
             </option>
           </select>
+          <button type="button" class="btn btn-outline btn-mapa" (click)="guardarDireccion(); mostrarMapa()">Mostar en mapa</button>
         </div>
         <div class="mb-3">
-          <input type="number" class="form-control calle" placeholder="Teléfono*" />
+          <iframe src="" frameborder="0" style="border:0; display: none;" id="mapa"></iframe>
         </div>
       </form>
     </div>
@@ -75,18 +79,21 @@
                 <input type="text" class="form-control calle" formControlName="numeroTarjeta"  placeholder="Número de tarjeta*" maxlength="16"/>
                 <small *ngIf="tarjetaForm.controls.numeroTarjeta.touched && tarjetaForm.controls.numeroTarjeta.errors?.required">Por favor, ingrese el número de la tarjeta</small>
                 <small *ngIf="tarjetaForm.controls.numeroTarjeta.touched && tarjetaForm.controls.numeroTarjeta.errors?.pattern">Por favor, ingrese número de tarjeta Visa</small>
+                <br>
                 <small *ngIf="tarjetaForm.controls.numeroTarjeta.touched && tarjetaForm.controls.numeroTarjeta.errors?.minlength">El número mínimo es de solo 16 dígitos</small>
               </div>
               <div class="mb-3 form-group">
                 <input type="text" class="form-control calle" formControlName="fechaVencimiento" placeholder="Expiración MM/AAAA*" maxlength="7"/>
                 <small *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.required">Por favor, ingrese la fecha de vencimiento</small>
                 <small *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.pattern">Por favor, ingrese la fecha de vencimiento en el formato MM/AAAA</small>
+                <br>
                 <small *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.min">Por favor, ingrese la fecha de vencimiento en el formato MM/AAAA</small>
               </div>
               <div class="mb-3 form-group">
                 <input type="text" class="form-control calle" formControlName="numeroCVVD" placeholder="Código de seguridad*" maxlength="3" />
                 <small *ngIf="tarjetaForm.controls.numeroCVVD.touched && tarjetaForm.controls.numeroCVVD.errors?.required">Por favor, ingrese el código de seguridad</small>
                 <small *ngIf="tarjetaForm.controls.numeroCVVD.touched && tarjetaForm.controls.numeroCVVD.errors?.pattern">Por favor, Ingrese sólo números</small>
+                <br>
                 <small *ngIf="tarjetaForm.controls.numeroCVVD.touched && tarjetaForm.controls.numeroCVVD.errors?.minlength">El número mínimo es de 3 dígitos</small>
 
               </div>
@@ -107,6 +114,7 @@
                 <input type="text" class="form-control calle" formControlName="monto" placeholder="Monto a pagar" />
                 <small *ngIf="debitoForm.controls.monto.touched && debitoForm.controls.monto.errors?.required">Por favor, ingrese el monto a pagar</small>
                 <small *ngIf="debitoForm.controls.monto.touched && debitoForm.controls.monto.errors?.pattern">Por favor, Ingrese solo números</small>
+                <br>
                 <small *ngIf="debitoForm.controls.monto.touched && debitoForm.controls.monto.errors?.min">Por favor, ingrese un monto mayor al total del pedido</small>
               </div>
             </form>

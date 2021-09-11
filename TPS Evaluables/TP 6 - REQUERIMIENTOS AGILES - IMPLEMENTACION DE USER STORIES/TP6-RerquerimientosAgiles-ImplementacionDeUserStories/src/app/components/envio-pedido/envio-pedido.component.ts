@@ -11,6 +11,7 @@ import { CiudadService } from 'src/app/services/ciudad.service';
 export class EnvioPedidoComponent implements OnInit {
   tarjetaForm: FormGroup;
   debitoForm: FormGroup;
+  direccionForm: FormGroup;
 
   ciudades: Ciudad[] = [];
   constructor(private ciudadService: CiudadService) {
@@ -40,6 +41,8 @@ export class EnvioPedidoComponent implements OnInit {
         Validators.pattern('^[0-9]+$'),
         Validators.min(1678)
       ]),
+    });
+    this.direccionForm = new FormGroup({
     })
   }
 
@@ -51,5 +54,20 @@ export class EnvioPedidoComponent implements OnInit {
     this.ciudadService.get().subscribe((res: Ciudad[]) => {
       this.ciudades = res;
     });
+  }
+
+  guardarDireccion(){
+    var calle = (document.getElementById('calle') as HTMLInputElement).value;
+    console.log(calle)
+    var numero = (document.getElementById('numero') as HTMLInputElement).value;
+    console.log(numero)
+    var ciudad = (document.getElementById('ciudad') as HTMLSelectElement).value;
+    console.log(ciudad)
+    var direccion = `https://www.google.com/maps/embed/v1/place?key=AIzaSyA1CXSj3gyAhTnTgFAAauVkXsxHFq9ZiM8&q=${calle} ${numero} ${ciudad} Argentina`;
+    (document.getElementById('mapa') as HTMLIFrameElement).src = direccion;
+  }
+
+  mostrarMapa(){
+    (document.getElementById('mapa') as HTMLIFrameElement).style.display = '';
   }
 }
