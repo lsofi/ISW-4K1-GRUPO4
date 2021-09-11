@@ -43,6 +43,21 @@ export class EnvioPedidoComponent implements OnInit {
       ]),
     });
     this.direccionForm = new FormGroup({
+      telefono: new FormControl('',[
+        Validators.required,
+        Validators.pattern('^[0-9]+$'),
+        Validators.minLength(10)
+      ]),
+      calle: new FormControl('',[
+        Validators.required,
+      ]),
+      numero: new FormControl('',[
+        Validators.required,
+        Validators.pattern('^[0-9]+$')
+      ]),
+      ciudad: new FormControl('',[
+        Validators.required
+      ])
     })
   }
 

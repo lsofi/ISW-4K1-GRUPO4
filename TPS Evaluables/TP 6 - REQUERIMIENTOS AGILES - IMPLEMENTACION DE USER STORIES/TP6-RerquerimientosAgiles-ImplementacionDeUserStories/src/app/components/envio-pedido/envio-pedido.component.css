@@ -1,12 +1,12 @@
 .navbar {
-  border-bottom: 3px solid #7400b8;
+  border-bottom: 0.188rem solid #7400b8;
 }
 
 .usuario {
-  margin-right: 35px;
+  margin-right: 2.188rem;
 }
 .user-img {
-    margin-left: -28px;
+    margin-left: -1.75rem;
 }
 
 .col-usuario{
@@ -15,23 +15,23 @@
 
 .btn-direccion-entrega{
     background-color: #72EFDD;
-    margin-top: 22px;
-    padding-left: 23px;
-    padding-right: 360px;
+    margin-top: 1.375rem;
+    padding-left: 1.438rem;
+    padding-right: 22.5rem;
     font-weight: bolder
 }
 .btn-forma-pago{
     background-color: #72EFDD;
-    margin-top: 22px;
-    padding-left: 23px;
-    padding-right: 403px;
+    margin-top: 1.375rem;
+    padding-left: 1.438rem;
+    padding-right: 25.188rem;
     font-weight: bolder
 }
 .btn-horario-entrega{
     background-color: #72EFDD;
-    margin-top: 22px;
-    padding-left: 23px;
-    padding-right: 376px;
+    margin-top: 1.375rem;
+    padding-left: 1.438rem;
+    padding-right: 23.5rem;
     font-weight: bolder
 }
 
@@ -57,7 +57,7 @@
 }
 
 #formaDePago{
-    padding-top: 15px;
+    padding-top: 0.938rem;
     margin-left: 0.625rem;
 }
 small{
@@ -65,7 +65,7 @@ small{
 }
 .pedido{
     float: left;
-    width: 580px;
+    width: 36.25rem;
 }
 
 .btn-mapa{
@@ -82,4 +82,25 @@ small{
 #mapa{
     width: 33.75rem;
     height: 20rem;
+}
+#fecha{
+    margin-left: 1rem;
+}
+
+.calendario{
+    border-color: #4EA8DE;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.hora{
+    margin-left: 1rem;
+}
+.time{
+    margin-left: 1.5rem;
+}
+
+.time, .hora{
+    margin-top: 0.086rem;
 }

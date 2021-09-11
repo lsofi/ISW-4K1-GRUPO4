@@ -39,23 +39,31 @@
     </button>
     <div class="collapse" id="direccionEntrega">
       <form [formGroup]="direccionForm">
-        <div class="mb-3">
-          <input type="text" class="form-control calle" placeholder="Teléfono*" />
+        <div class="mb-3 form-group">
+          <input type="text" class="form-control calle" placeholder="Teléfono*" formControlName="telefono" maxlength="10"/>
+          <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.required">Por favor, ingrese el número de telefono</small>
+          <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.pattern">Por favor, ingrese el número de telefono de manera correcta</small>
+          <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.minlength">La cantidad mínima de dígitos es 10</small>
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control calle" placeholder="Calle*" id="calle"/>
+          <input type="text" class="form-control calle" placeholder="Calle*" id="calle" formControlName="calle"/>
+          <small *ngIf="direccionForm.controls.calle.touched && direccionForm.controls.calle.errors?.required">Por favor, ingrese el nombre de la calle</small>
+
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control calle" placeholder="Número*" id="numero"/>
+          <input type="text" class="form-control calle" placeholder="Número*" id="numero" formControlName="numero"/>
+          <small *ngIf="direccionForm.controls.numero.touched && direccionForm.controls.numero.errors?.required">Por favor, ingrese el número de telefono</small>
+          <small *ngIf="direccionForm.controls.numero.touched && direccionForm.controls.numero.errors?.pattern">Por favor, ingrese el número de calle de manera correcta</small>
+
         </div>
         <div class="mb-3">
-          <!-- <input type="text" class="form-control calle" placeholder="Ciudad*"> -->
-          <select class="form-select form-control ciudad" id="ciudad">
+          <select class="form-select form-control ciudad" id="ciudad" formControlName="ciudad">
             <option *ngFor="let opt of ciudades" value="{{opt.nombre}}">
               {{ opt.nombre }}
             </option>
           </select>
           <button type="button" class="btn btn-outline btn-mapa" (click)="guardarDireccion(); mostrarMapa()">Mostar en mapa</button>
+          <small *ngIf="direccionForm.controls.ciudad.touched && direccionForm.controls.ciudad.errors?.required">Por favor, ingrese la ciudad</small>
         </div>
         <div class="mb-3">
           <iframe src="" frameborder="0" style="border:0; display: none;" id="mapa"></iframe>
@@ -133,8 +141,11 @@
           <input type="radio" name="horarioEntrega" data-bs-toggle="collapse" data-bs-target="#fecha-hora-perso" aria-expanded="false" />
           <label for="fecha-hora-perso">Fecha y hora personalizado</label>
           <div class="collapse" id="fecha-hora-perso">
-            <input placeholder="dd/mm/aaaa" formControlName="Fecha" ngbDatepicker type="date" />
-
+            <label for="fecha" id="fecha">Fecha</label>
+            <input placeholder="dd/mm/aaaa" formControlName="Fecha" ngbDatepicker type="date" id="fecha" class="calendario"/>
+            <br>
+            <label for="hora" class="hora">Hora</label>
+            <input type="time" class="calendario time">
           </div>
         </div>
         <div class="mb-3">
