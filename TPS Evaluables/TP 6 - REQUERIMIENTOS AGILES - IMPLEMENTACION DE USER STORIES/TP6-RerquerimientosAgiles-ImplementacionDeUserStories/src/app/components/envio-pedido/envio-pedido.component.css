@@ -69,8 +69,7 @@ small{
 .btn-mapa{
     border-color: #4EA8DE;
     color: #4EA8DE;
-    margin-top: -4.188rem;
-    margin-left: 24.875rem;
+    margin-top: -2.45rem;
 }
 
 .btn-mapa:hover{
@@ -105,33 +104,96 @@ small{
     background-color: #7400b8;
     color: white;
     margin-top: 1.563rem;
-    margin-left: 12.813rem;
 }
 
 .time, .hora{
     margin-top: 0.086rem;
 }
 
-@media (min-width: 1024px) and (max-width: 2560px){
+@media (min-width: 1440px) and (max-width: 2560px){
     .pedido{
-        float: left;
+        margin: auto;
+        margin-left: 6rem;
+        width: 58%;
     }
+
 
     .btn-direccion-entrega{
-        padding-left: 1.438rem;
-        padding-right: 25.188rem;
-
+        width: 100%;
+        text-align: left;
     }
     .btn-forma-pago{
-        padding-left: 1.438rem;
-        padding-right: 25.188rem;
+        width: 100%;
+        text-align: left;
     }
     .btn-horario-entrega{
-        padding-left: 1.438rem;
-        padding-right: 23.5rem;
+        width: 100%;
+        text-align: left;
+    }
+    .btn-enviar{
+        margin-bottom: 20px;
+        position: relative;
+        left: 40%;
+        width: 150px;
+    }
+
+    .calle{
+        width: 100%
+    }
+
+    .ciudad{
+        width: 70%
+    }
+
+    .btn-mapa{
+        float: right;
+        width: 22%;
+        min-width: fit-content;
     }
 }
 
+
+@media (min-width: 1024px) and (max-width: 1440px){
+    .pedido{
+        margin: auto;
+        margin-left: 6rem;
+        width: 50%;
+    }
+
+
+    .btn-direccion-entrega{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-forma-pago{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-horario-entrega{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-enviar{
+        margin-bottom: 20px;
+        position: relative;
+        left: 40%;
+        width: 150px;
+    }
+
+    .calle{
+        width: 100%
+    }
+
+    .ciudad{
+        width: 70%
+    }
+
+    .btn-mapa{
+        float: right;
+        width: 22%;
+        min-width: fit-content;
+    }
+}
 @media (max-width: 1024px) and (min-width: 0px){
     .pedido{
         margin: auto;
