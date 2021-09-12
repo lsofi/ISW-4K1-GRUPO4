@@ -36,8 +36,10 @@
     margin-top: auto;
     margin-bottom: auto;
 }
-.precio{
-    margin-left: 8.813rem;
+
+.basurero{
+  border: none;
+  background-color: white;
 }
 
 .linea2{

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Carrito } from 'src/app/models/carrito';
 import { DetalleCarrito } from 'src/app/models/detalle-carrito';
 import { Producto } from 'src/app/models/producto';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { ProductosService } from 'src/app/services/productos.service';
+
 
 @Component({
   selector: 'app-carrito',
@@ -12,7 +13,9 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 export class CarritoComponent implements OnInit {
 
+
   Items: DetalleCarrito[] = [];
+  total: number = 0;
   constructor(private productosService: ProductosService,
     private carritosService: CarritoService) { }
 
@@ -25,9 +28,13 @@ export class CarritoComponent implements OnInit {
     this.carritosService.get().subscribe((res:Carrito[]) =>{
       this.Items = res[0].detallesCarrito;
     })
+
+    var tot = 0;
+    this.Items.forEach(function (item) {
+      tot += item.producto.precioUnitario * item.cantidad 
+    });
+    this.total = tot + 100;
   }
-
-
 
   sumarItems(){
     var cantItems = this.Items.length;
@@ -35,5 +42,13 @@ export class CarritoComponent implements OnInit {
     console.log(cantItems);
   }
 
+  eliminarItem(item: DetalleCarrito){
+    var pos = this.Items.indexOf(item);
+    
+    this.Items.splice(pos, 1);
+    this.total -= item.producto.precioUnitario * item.cantidad;
+    
+    (document.getElementsByClassName("precioTot").item(0) as HTMLElement).innerText = "$" + this.total;
+  }
 
 }

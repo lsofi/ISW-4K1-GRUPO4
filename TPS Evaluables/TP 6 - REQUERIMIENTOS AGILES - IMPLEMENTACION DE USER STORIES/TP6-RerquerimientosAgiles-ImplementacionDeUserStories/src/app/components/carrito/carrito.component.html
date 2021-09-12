@@ -21,8 +21,9 @@
                     <div class="row">
                         <div class="col"><img src="{{item.producto.img}}" alt="" height="70" width="70" class="comida"></div>
                         <div class="col prod">{{item.producto.nombre}}</div>
-                        <div class="col prod precio">${{item.producto.precioUnitario}}</div>
-                        <div class="col prod"><button><img src="https://i.imgur.com/QDgDLAQ.png" alt="" height="30px" width="30px"></button>
+                        <div class="col prod">{{item.cantidad}}</div>
+                        <div class="col prod precio">${{item.producto.precioUnitario * item.cantidad}}</div>
+                        <div class="col prod"><button (click)="eliminarItem(item)" class="basurero"><img src="https://i.imgur.com/QDgDLAQ.png" alt="" height="30px" width="30px"></button>
                         </div>
                     </div>
                 </div>
@@ -34,7 +35,7 @@
             </div>
             <div class="row total">
                 <div class="col">Total</div>
-                <div class="col precioTot">$1678</div>
+                <div class="col precioTot" >${{total}}</div>
             </div>
         </div>
     </div>

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Ciudad } from 'src/app/models/ciudad';
 import { CiudadService } from 'src/app/services/ciudad.service';
+import { CarritoComponent } from '../carrito/carrito.component';
 
 @Component({
   selector: 'app-envio-pedido',
@@ -10,8 +11,11 @@ import { CiudadService } from 'src/app/services/ciudad.service';
 })
 export class EnvioPedidoComponent implements OnInit {
   tarjetaForm: FormGroup;
-  debitoForm: FormGroup;
+  efectivoForm: FormGroup;
   direccionForm: FormGroup;
+  horarioForm: FormGroup;
+
+
 
   ciudades: Ciudad[] = [];
   constructor(private ciudadService: CiudadService) {
@@ -35,11 +39,11 @@ export class EnvioPedidoComponent implements OnInit {
         Validators.pattern('^[a-zA-Z ]+$'),
       ]),
     });
-    this.debitoForm = new FormGroup({
+    this.efectivoForm = new FormGroup({
       monto: new FormControl('', [
         Validators.required,
         Validators.pattern('^[0-9]+$'),
-        Validators.min(1678)
+        Validators.min(1250)
       ]),
     });
     this.direccionForm = new FormGroup({
@@ -54,6 +58,14 @@ export class EnvioPedidoComponent implements OnInit {
       numero: new FormControl('',[
         Validators.required,
         Validators.pattern('^[0-9]+$')
+      ])
+    });
+    this.horarioForm = new FormGroup({
+      Fecha: new FormControl('',[
+        Validators.required
+      ]),
+      Hora: new FormControl('',[
+        Validators.required
       ])
     })
   }
@@ -81,5 +93,46 @@ export class EnvioPedidoComponent implements OnInit {
 
   mostrarMapa(){
     (document.getElementById('mapa') as HTMLIFrameElement).style.display = '';
+  }
+
+
+
+  enviar(){
+    //if(this.tarjetaForm.invalid || this.efectivoForm.invalid || this.direccionForm.invalid ) return;
+
+    const tarjetaCopy = {...this.tarjetaForm.value};
+    const efectivoCopy = {...this.efectivoForm.value};
+    const direccionCopy = {...this.direccionForm.value};
+    const horarioCopy = {...this.horarioForm.value};
+
+    var ahora = new Date();
+    var fechaVencimiento = tarjetaCopy.fechaVencimiento.split("/");
+    var vencimientoTarjeta = new Date(fechaVencimiento[1], fechaVencimiento[0] - 1);
+
+    if (ahora > vencimientoTarjeta) return;
+
+    
+    var horaEntrega = horarioCopy.Hora + " " + horarioCopy.Fecha;
+
+    var fechaEntrega = new Date(horaEntrega);
+
+
+    if(fechaEntrega < this.agregarHoras(ahora, 1) && fechaEntrega > this.agregarDias(ahora, 7)) return;
+
+
+
+
+  }
+
+  agregarHoras(fecha:Date, horas: number){
+    var milisegundos = fecha.getTime();
+    var agregarMs = horas * 60 * 60 * 1000;
+    return new Date(milisegundos + agregarMs)
+  }
+
+  agregarDias(fecha: Date, dias: number){
+    var milisegundos = fecha.getTime();
+    var agregarMs = dias * 24 * 60 * 60 * 1000;
+    return new Date(milisegundos + agregarMs) 
   }
 }

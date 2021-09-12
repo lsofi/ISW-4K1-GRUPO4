@@ -96,7 +96,6 @@
                 <small *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.required">Por favor, ingrese la fecha de vencimiento</small>
                 <small *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.pattern">Por favor, ingrese la fecha de vencimiento en el formato MM/AAAA</small>
                 <br>
-                <small *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.min">Por favor, ingrese la fecha de vencimiento en el formato MM/AAAA</small>
               </div>
               <div class="mb-3 form-group">
                 <input type="text" class="form-control calle" formControlName="numeroCVVD" placeholder="Código de seguridad*" maxlength="3" />
@@ -118,13 +117,13 @@
           <input type="radio" id="efectivoButton" name="metodoPago" data-bs-toggle="collapse" data-bs-target="#efectivo:not(.show)"/>
           <label for="efectivoButton">Efectivo</label>
           <div class="collapse" id="efectivo">
-            <form name ="debitoForm" [formGroup]="debitoForm">
+            <form name ="efectivoForm" [formGroup]="efectivoForm">
               <div class="mb-3 form-group">
                 <input type="text" class="form-control calle" formControlName="monto" placeholder="Monto a pagar" />
-                <small *ngIf="debitoForm.controls.monto.touched && debitoForm.controls.monto.errors?.required">Por favor, ingrese el monto a pagar</small>
-                <small *ngIf="debitoForm.controls.monto.touched && debitoForm.controls.monto.errors?.pattern">Por favor, Ingrese solo números</small>
+                <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.required">Por favor, ingrese el monto a pagar</small>
+                <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.pattern">Por favor, Ingrese solo números</small>
                 <br>
-                <small *ngIf="debitoForm.controls.monto.touched && debitoForm.controls.monto.errors?.min">Por favor, ingrese un monto mayor al total del pedido</small>
+                <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.min">Por favor, ingrese un monto mayor al total del pedido</small>
               </div>
             </form>
           </div>
@@ -137,25 +136,27 @@
       Horario de entrega
     </button>
     <div class="collapse" id="horarioEntrega">
-      <div class="mt-3">
-        <div class="mb-3">
-          <input type="radio" id="fecha-hora-persoButton" name="horarioEntrega" data-bs-toggle="collapse" data-bs-target="#fecha-hora-perso:not(.show)" aria-expanded="false" />
-          <label for="fecha-hora-persoButton">Fecha y hora personalizado</label>
-          <div class="collapse" id="fecha-hora-perso">
-            <label for="fecha" id="fecha">Fecha</label>
-            <input placeholder="dd/mm/aaaa" formControlName="Fecha" ngbDatepicker type="date" id="fecha" class="calendario"/>
-            <br>
-            <label for="hora" class="hora">Hora</label>
-            <input type="time" class="calendario time">
+      <form [formGroup]="horarioForm">
+        <div class="mt-3">
+          <div class="mb-3">
+            <input type="radio" id="fecha-hora-persoButton" name="horarioEntrega" data-bs-toggle="collapse" data-bs-target="#fecha-hora-perso:not(.show)" aria-expanded="false" />
+            <label for="fecha-hora-persoButton">Fecha y hora personalizado</label>
+            <div class="collapse" id="fecha-hora-perso">
+              <label for="fecha" id="fecha">Fecha</label>
+              <input placeholder="dd/mm/aaaa" formControlName="Fecha" ngbDatepicker type="date" id="fecha" class="calendario"/>
+              <br>
+              <label for="hora" class="hora">Hora</label>
+              <input type="time" formControlName="Hora" class="calendario time">
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="radio" id="ahora" name="horarioEntrega"/>
+            <label for="ahora">Lo antes posible</label>
           </div>
         </div>
-        <div class="mb-3">
-          <input type="radio" id="ahora" name="horarioEntrega"/>
-          <label for="ahora">Lo antes posible</label>
-        </div>
-      </div>
+      </form>  
     </div>
   </div>
-  <button type="button" class="btn btn-enviar">Enviar pedido</button>
+  <button type="button" class="btn btn-enviar" (click)= "enviar()">Enviar pedido</button>
 </div>
 
