@@ -13,7 +13,7 @@ import { EnvioPedidoComponent } from './components/envio-pedido/envio-pedido.com
   declarations: [
     AppComponent,
     CarritoComponent,
-    EnvioPedidoComponent
+    EnvioPedidoComponent,
   ],
   imports: [
     BrowserModule,

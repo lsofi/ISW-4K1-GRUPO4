@@ -110,6 +110,7 @@ small{
 }
 
 
+
 @media (max-width: 1024px){
     .pedido{
         margin: auto;
@@ -137,6 +138,7 @@ small{
         position: relative;
         left: 40%;
     }
+
 } 
 
 @media(min-width: 1025px) and (max-width: 1223px){
