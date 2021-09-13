@@ -109,6 +109,9 @@ small{
     margin-top: 0.086rem;
 }
 
+.modal-footer{
+    justify-content: center;
+}
 
 
 @media (max-width: 1024px){

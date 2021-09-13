@@ -109,7 +109,10 @@ export class EnvioPedidoComponent implements OnInit {
 
     var botonModal = (document.getElementById("btnEnviar") as HTMLElement);
 
-    valido = this.validarForms();
+    if(!this.validarForms()){
+      valido = false;
+      this.errorModal("Revise sus datos");
+    }
     console.log(valido);
 
     var ahora = new Date();
@@ -122,7 +125,10 @@ export class EnvioPedidoComponent implements OnInit {
       );
     
 
-      if (ahora > vencimientoTarjeta) valido = false;
+      if (ahora > vencimientoTarjeta){
+        valido = false;
+        this.errorModal("Su tarjeta está vencida");
+      }
     }
 
     console.log(valido);
@@ -134,16 +140,25 @@ export class EnvioPedidoComponent implements OnInit {
 
       if (
         fechaEntrega < this.agregarHoras(ahora, 1) ||
-        fechaEntrega > this.agregarDias(ahora, 7)
+        fechaEntrega > this.agregarDias(ahora, 7) || !this.validarHorario(fechaEntrega)
       ){
         valido = false;
-        
+        this.errorModal("Hora de entrega no válida");
       }     
     }
     console.log(valido);
 
-    if(this.Total == 100) valido = false;
+    if(this.Total == 100){
+      valido = false;
+      this.errorModal("No hay productos en el carrito");
+      
+    }
     console.log(valido);
+
+    if(!this.validarTarjeta()){
+      valido = false;
+      this.errorModal("Su Visa no ha sido aceptada")
+    }
 
     if(!valido){
       (document.getElementById("error") as HTMLDivElement).style.display = "block";
@@ -190,6 +205,14 @@ export class EnvioPedidoComponent implements OnInit {
   }
 
   mostrarDatos() {
+
+    var fechahorapersoButtonCheck = document.getElementById(
+      'fecha-hora-persoButton'
+    ) as HTMLInputElement;
+    
+    var ahora = new Date();
+    ahora = this.agregarHoras(ahora,1);
+
     var calle = (document.getElementById('calle') as HTMLInputElement).value;
     var numero = (document.getElementById('numero') as HTMLInputElement).value;
     var ciudad = (document.getElementById('ciudad') as HTMLSelectElement).value;
@@ -198,13 +221,28 @@ export class EnvioPedidoComponent implements OnInit {
       document.getElementById('direccionConfirmada') as HTMLParagraphElement
     ).innerText = 'Tu pedido llegará a ' + ' ' + direccion;
 
-    var fecha = (document.getElementById('fecha') as HTMLInputElement).value;
+    if (fechahorapersoButtonCheck.checked){
+    var fecha = ((document.getElementById('fecha') as HTMLInputElement).value).split('-');
     (document.getElementById('diaEntrega') as HTMLParagraphElement).innerText =
-      'El día ' + ' ' + fecha;
+      'El día ' + ' ' + fecha[2] + '/' + fecha[1] + '/' + fecha[0];
 
     var hora = (document.getElementById('hora') as HTMLInputElement).value;
     (document.getElementById('horaEntrega') as HTMLParagraphElement).innerText =
       'Alrededor de las ' + ' ' + hora;
+    }
+    else{
+      var dia = ahora.getDate();
+      var mes = ahora.getMonth();
+      var año = ahora.getFullYear();
+      var horaYa = ahora.getHours();
+      var minutos = ahora.getMinutes();
+
+      (document.getElementById('diaEntrega') as HTMLParagraphElement).innerText =
+      'El día ' + ' ' + dia + '/' + (mes +1) + '/' + año;
+
+      (document.getElementById('horaEntrega') as HTMLParagraphElement).innerText =
+      'Alrededor de las ' + ' ' + horaYa + ":" + ((minutos<10?'0':'') + minutos);
+    }
   }
 
   ocultarEfectivo() {
@@ -236,19 +274,29 @@ export class EnvioPedidoComponent implements OnInit {
 
   pasarData(data: any) {
     this.Total = data;
-    this.efectivoForm.controls['monto'].setValidators(
-      Validators.min(this.Total)
+    this.efectivoForm.controls['monto'].setValidators([Validators.required,
+      Validators.pattern('^[0-9]+$'),
+      Validators.min(this.Total)]
     );
-    this.efectivoForm.controls['monto'].reset();
+    this.efectivoForm.reset();
   }
 
   errorModal(mensaje: string){
-
+    (document.getElementById("msjError") as HTMLParagraphElement).innerText = mensaje;
   }
 
   cerrarModal(){
     (document.getElementById("error") as HTMLDivElement).style.display = "none";
     (document.getElementById("confirmacion") as HTMLDivElement).style.display = "none";
+  }
+
+  validarTarjeta(){
+    return true;
+  }
+
+  validarHorario(fecha: Date){
+    var hora = fecha.getHours()
+    return (hora >= 8)
   }
 
 }
