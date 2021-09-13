@@ -43,7 +43,6 @@
     margin-top: 0.625rem;
 }
 
-/* ESTO ES MUY SOSPECHOSO */
 .ciudad{
     border-left: none;
     border-top: none;
@@ -110,7 +109,107 @@ small{
     margin-top: 0.086rem;
 }
 
-@media (min-width: 1440px) and (max-width: 2560px){
+
+@media (max-width: 1024px){
+    .pedido{
+        margin: auto;
+    }
+
+    .btn-direccion-entrega{
+        padding-left: 1.438rem;
+        padding-right: 22.5rem;
+
+    }
+    .btn-forma-pago{
+        padding-left: 1.438rem;
+        padding-right: 25.188rem;
+    }
+    .btn-horario-entrega{
+        padding-left: 1.438rem;
+        padding-right: 23.5rem;
+    }
+    .btn-mapa{
+        float: right;
+        width: 22%;
+        min-width: fit-content;
+    }
+    .btn-enviar{
+        position: relative;
+        left: 40%;
+    }
+} 
+
+@media(min-width: 1025px) and (max-width: 1223px){
+    .pedido{
+        margin: auto;
+    }
+
+    .btn-direccion-entrega{
+        padding-left: 1.438rem;
+        padding-right: 22.5rem;
+
+    }
+    .btn-forma-pago{
+        padding-left: 1.438rem;
+        padding-right: 25.188rem;
+    }
+    .btn-horario-entrega{
+        padding-left: 1.438rem;
+        padding-right: 23.5rem;
+    }
+    .btn-mapa{
+        float: right;
+        width: 22%;
+        min-width: fit-content;
+    }
+    .btn-enviar{
+        position: relative;
+        left: 40%;
+    }
+}
+
+@media (min-width: 1224px) and (max-width: 1629px){
+    .pedido{
+        width: 50%;
+    }
+
+
+    .btn-direccion-entrega{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-forma-pago{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-horario-entrega{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-enviar{
+        margin-bottom: 20px;
+        position: relative;
+        left: 40%;
+        width: 150px;
+    }
+
+    .calle{
+        width: 100%
+    }
+
+    .ciudad{
+        width: 70%
+    }
+
+    .btn-mapa{
+        float: right;
+        width: 22%;
+        min-width: fit-content;
+    }
+
+}
+
+@media (min-width: 1630px){
     .pedido{
         margin: auto;
         margin-left: 6rem;
@@ -149,67 +248,5 @@ small{
         float: right;
         width: 22%;
         min-width: fit-content;
-    }
-}
-
-
-@media (min-width: 1024px) and (max-width: 1440px){
-    .pedido{
-        margin: auto;
-        margin-left: 6rem;
-        width: 50%;
-    }
-
-
-    .btn-direccion-entrega{
-        width: 100%;
-        text-align: left;
-    }
-    .btn-forma-pago{
-        width: 100%;
-        text-align: left;
-    }
-    .btn-horario-entrega{
-        width: 100%;
-        text-align: left;
-    }
-    .btn-enviar{
-        margin-bottom: 20px;
-        position: relative;
-        left: 40%;
-        width: 150px;
-    }
-
-    .calle{
-        width: 100%
-    }
-
-    .ciudad{
-        width: 70%
-    }
-
-    .btn-mapa{
-        float: right;
-        width: 22%;
-        min-width: fit-content;
-    }
-}
-@media (max-width: 1024px) and (min-width: 0px){
-    .pedido{
-        margin: auto;
-    }
-
-    .btn-direccion-entrega{
-        padding-left: 1.438rem;
-        padding-right: 22.5rem;
-
-    }
-    .btn-forma-pago{
-        padding-left: 1.438rem;
-        padding-right: 25.188rem;
-    }
-    .btn-horario-entrega{
-        padding-left: 1.438rem;
-        padding-right: 23.5rem;
     }
 }

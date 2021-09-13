@@ -81,11 +81,11 @@ export class EnvioPedidoComponent implements OnInit {
   }
 
   guardarDireccion(){
-    var calle = (document.getElementById('calle') as HTMLInputElement).value;
+    const calle = (document.getElementById('calle') as HTMLInputElement).value;
     console.log(calle)
-    var numero = (document.getElementById('numero') as HTMLInputElement).value;
+    const numero = (document.getElementById('numero') as HTMLInputElement).value;
     console.log(numero)
-    var ciudad = (document.getElementById('ciudad') as HTMLSelectElement).value;
+    const ciudad = (document.getElementById('ciudad') as HTMLSelectElement).value;
     console.log(ciudad)
     var direccion = `https://www.google.com/maps/embed/v1/place?key=AIzaSyA1CXSj3gyAhTnTgFAAauVkXsxHFq9ZiM8&q=${calle} ${numero} ${ciudad} Argentina`;
     (document.getElementById('mapa') as HTMLIFrameElement).src = direccion;
@@ -98,7 +98,6 @@ export class EnvioPedidoComponent implements OnInit {
 
 
   enviar(){
-    //if(this.tarjetaForm.invalid || this.efectivoForm.invalid || this.direccionForm.invalid ) return;
 
     const tarjetaCopy = {...this.tarjetaForm.value};
     const efectivoCopy = {...this.efectivoForm.value};
@@ -120,7 +119,7 @@ export class EnvioPedidoComponent implements OnInit {
     if(fechaEntrega < this.agregarHoras(ahora, 1) && fechaEntrega > this.agregarDias(ahora, 7)) return;
 
 
-
+    return;
 
   }
 
@@ -134,5 +133,23 @@ export class EnvioPedidoComponent implements OnInit {
     var milisegundos = fecha.getTime();
     var agregarMs = dias * 24 * 60 * 60 * 1000;
     return new Date(milisegundos + agregarMs) 
+  }
+
+  validarForms(){
+    if((this.tarjetaForm.valid || this.efectivoForm.valid) && this.direccionForm.valid && this.horarioForm.valid) return;
+  }
+
+  mostrarDatos(){
+    var calle = (document.getElementById('calle') as HTMLInputElement).value;
+    var numero = (document.getElementById('numero') as HTMLInputElement).value;
+    var ciudad = (document.getElementById('ciudad') as HTMLSelectElement).value;
+    var direccion = calle + " " + numero + ", " + ciudad;
+    (document.getElementById('direccionConfirmada') as HTMLParagraphElement).innerText = "Tu pedido llegará a " + " " + direccion;
+
+    var fecha = (document.getElementById('fecha') as HTMLInputElement).value;
+    (document.getElementById('diaEntrega') as HTMLParagraphElement).innerText = "El día " + " " + fecha;
+
+    var hora = (document.getElementById('hora') as HTMLInputElement).value;
+    (document.getElementById('horaEntrega') as HTMLParagraphElement).innerText = "Alrededor de las " + " " + hora;
   }
 }

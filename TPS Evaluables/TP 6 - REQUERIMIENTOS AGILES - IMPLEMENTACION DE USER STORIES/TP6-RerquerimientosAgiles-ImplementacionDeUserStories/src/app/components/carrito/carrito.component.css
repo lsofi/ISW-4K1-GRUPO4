@@ -59,22 +59,30 @@
     font-weight: bold;
 }
 
-@media (min-width: 1024px) and (max-width: 2560px)
-{
+@media (max-width: 768px){
   .fixed{
-    float: right;
-    position: fixed;
-    top: 5.5rem;
-    right: 2.5%;
-    
-  }
-}
-
-@media (max-width: 1024px) and (min-width: 0px){
-  .fixed{
-    float: none;
     margin: auto;
   }
 }
+@media (min-width: 769px) and (max-width: 1023px){
+  .fixed{
+    margin: auto;
+  }
+}
+
+@media(min-width: 1024px) and (max-width: 1223px){
+  .fixed{
+    float: none;
+  }
+}
+
+@media(min-width: 1224px){
+  .fixed{
+    float: right;
+    margin-right: 100px;
+  }
+}
+
+
 
 

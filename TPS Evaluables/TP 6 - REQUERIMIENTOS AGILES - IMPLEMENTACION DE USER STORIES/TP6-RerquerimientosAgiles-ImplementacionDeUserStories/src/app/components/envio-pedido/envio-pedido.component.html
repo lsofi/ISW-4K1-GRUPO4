@@ -42,20 +42,27 @@
     <div class="collapse" id="direccionEntrega">
       <form [formGroup]="direccionForm">
         <div class="mb-3 form-group">
-          <input type="text" class="form-control calle" placeholder="Teléfono*" formControlName="telefono" maxlength="10"/>
-          <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.required">Por favor, ingrese el número de telefono</small>
-          <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.pattern">Por favor, ingrese el número de telefono de manera correcta</small>
-          <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.minlength">La cantidad mínima de dígitos es 10</small>
+          <input type="text" class="form-control calle" placeholder="Teléfono*" formControlName="telefono"
+            maxlength="10" />
+          <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.required">Por
+            favor, ingrese el número de telefono</small>
+          <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.pattern">Por
+            favor, ingrese el número de telefono de manera correcta</small>
+          <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.minlength">La
+            cantidad mínima de dígitos es 10</small>
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control calle" placeholder="Calle*" id="calle" formControlName="calle"/>
-          <small *ngIf="direccionForm.controls.calle.touched && direccionForm.controls.calle.errors?.required">Por favor, ingrese el nombre de la calle</small>
+          <input type="text" class="form-control calle" placeholder="Calle*" id="calle" formControlName="calle" />
+          <small *ngIf="direccionForm.controls.calle.touched && direccionForm.controls.calle.errors?.required">Por
+            favor, ingrese el nombre de la calle</small>
 
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control calle" placeholder="Número*" id="numero" formControlName="numero"/>
-          <small *ngIf="direccionForm.controls.numero.touched && direccionForm.controls.numero.errors?.required">Por favor, ingrese el número de telefono</small>
-          <small *ngIf="direccionForm.controls.numero.touched && direccionForm.controls.numero.errors?.pattern">Por favor, ingrese el número de calle de manera correcta</small>
+          <input type="text" class="form-control calle" placeholder="Número*" id="numero" formControlName="numero" />
+          <small *ngIf="direccionForm.controls.numero.touched && direccionForm.controls.numero.errors?.required">Por
+            favor, ingrese el número de telefono</small>
+          <small *ngIf="direccionForm.controls.numero.touched && direccionForm.controls.numero.errors?.pattern">Por
+            favor, ingrese el número de calle de manera correcta</small>
 
         </div>
         <div class="mb-3">
@@ -64,7 +71,8 @@
               {{ opt.nombre }}
             </option>
           </select>
-          <button type="button" class="btn btn-outline btn-mapa" (click)="guardarDireccion(); mostrarMapa()">Mostar en mapa</button>
+          <button type="button" class="btn btn-outline btn-mapa" (click)="guardarDireccion(); mostrarMapa()">Mostrar en
+            mapa</button>
         </div>
         <div class="mb-3">
           <iframe src="" frameborder="0" style="border:0; display: none;" id="mapa"></iframe>
@@ -80,50 +88,77 @@
     <div class="collapse" id="formaDePago">
       <form>
         <div class="mb-3">
-          <input type="radio" id="tarjetaButton" name="metodoPago" data-bs-toggle="collapse" data-bs-target="#tarjeta:not(.show)"/>
+          <input type="radio" id="tarjetaButton" name="metodoPago" data-bs-toggle="collapse"
+            data-bs-target="#tarjeta:not(.show)" />
           <label for="tarjetaButton">Tarjeta</label>
           <div class="collapse" id="tarjeta">
-            <form name ="tarjetaForm" [formGroup]="tarjetaForm">
+            <form name="tarjetaForm" [formGroup]="tarjetaForm">
               <div class="mb-3 form-group">
-                <input type="text" class="form-control calle" formControlName="numeroTarjeta"  placeholder="Número de tarjeta*" maxlength="16"/>
-                <small *ngIf="tarjetaForm.controls.numeroTarjeta.touched && tarjetaForm.controls.numeroTarjeta.errors?.required">Por favor, ingrese el número de la tarjeta</small>
-                <small *ngIf="tarjetaForm.controls.numeroTarjeta.touched && tarjetaForm.controls.numeroTarjeta.errors?.pattern">Por favor, ingrese número de tarjeta Visa</small>
+                <input type="text" class="form-control calle" formControlName="numeroTarjeta"
+                  placeholder="Número de tarjeta*" maxlength="16" />
+                <small
+                  *ngIf="tarjetaForm.controls.numeroTarjeta.touched && tarjetaForm.controls.numeroTarjeta.errors?.required">Por
+                  favor, ingrese el número de la tarjeta</small>
+                <small
+                  *ngIf="tarjetaForm.controls.numeroTarjeta.touched && tarjetaForm.controls.numeroTarjeta.errors?.pattern">Por
+                  favor, ingrese número de tarjeta Visa</small>
                 <br>
-                <small *ngIf="tarjetaForm.controls.numeroTarjeta.touched && tarjetaForm.controls.numeroTarjeta.errors?.minlength">El número mínimo es de solo 16 dígitos</small>
+                <small
+                  *ngIf="tarjetaForm.controls.numeroTarjeta.touched && tarjetaForm.controls.numeroTarjeta.errors?.minlength">El
+                  número mínimo es de solo 16 dígitos</small>
               </div>
               <div class="mb-3 form-group">
-                <input type="text" class="form-control calle" formControlName="fechaVencimiento" placeholder="Expiración MM/AAAA*" maxlength="7"/>
-                <small *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.required">Por favor, ingrese la fecha de vencimiento</small>
-                <small *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.pattern">Por favor, ingrese la fecha de vencimiento en el formato MM/AAAA</small>
+                <input type="text" class="form-control calle" formControlName="fechaVencimiento"
+                  placeholder="Expiración MM/AAAA*" maxlength="7" />
+                <small
+                  *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.required">Por
+                  favor, ingrese la fecha de vencimiento</small>
+                <small
+                  *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.pattern">Por
+                  favor, ingrese la fecha de vencimiento en el formato MM/AAAA</small>
                 <br>
               </div>
               <div class="mb-3 form-group">
-                <input type="text" class="form-control calle" formControlName="numeroCVVD" placeholder="Código de seguridad*" maxlength="3" />
-                <small *ngIf="tarjetaForm.controls.numeroCVVD.touched && tarjetaForm.controls.numeroCVVD.errors?.required">Por favor, ingrese el código de seguridad</small>
-                <small *ngIf="tarjetaForm.controls.numeroCVVD.touched && tarjetaForm.controls.numeroCVVD.errors?.pattern">Por favor, Ingrese sólo números</small>
+                <input type="text" class="form-control calle" formControlName="numeroCVVD"
+                  placeholder="Código de seguridad*" maxlength="3" />
+                <small
+                  *ngIf="tarjetaForm.controls.numeroCVVD.touched && tarjetaForm.controls.numeroCVVD.errors?.required">Por
+                  favor, ingrese el código de seguridad</small>
+                <small
+                  *ngIf="tarjetaForm.controls.numeroCVVD.touched && tarjetaForm.controls.numeroCVVD.errors?.pattern">Por
+                  favor, Ingrese sólo números</small>
                 <br>
-                <small *ngIf="tarjetaForm.controls.numeroCVVD.touched && tarjetaForm.controls.numeroCVVD.errors?.minlength">El número mínimo es de 3 dígitos</small>
+                <small
+                  *ngIf="tarjetaForm.controls.numeroCVVD.touched && tarjetaForm.controls.numeroCVVD.errors?.minlength">El
+                  número mínimo es de 3 dígitos</small>
 
               </div>
               <div class="mb-3 form-group">
-                <input type="text" class="form-control calle" formControlName="nombre" placeholder="Nombre completo del titular (como figura en la tarjeta)*" />
-                <small *ngIf="tarjetaForm.controls.nombre.touched && tarjetaForm.controls.nombre.errors?.required">Por favor, ingrese el nombre del titular (como figura en la tarjeta)</small>
-                <small *ngIf="tarjetaForm.controls.nombre.touched && tarjetaForm.controls.nombre.errors?.pattern">Por favor, Ingrese el nombre de forma correcta</small>
+                <input type="text" class="form-control calle" formControlName="nombre"
+                  placeholder="Nombre completo del titular (como figura en la tarjeta)*" />
+                <small *ngIf="tarjetaForm.controls.nombre.touched && tarjetaForm.controls.nombre.errors?.required">Por
+                  favor, ingrese el nombre del titular (como figura en la tarjeta)</small>
+                <small *ngIf="tarjetaForm.controls.nombre.touched && tarjetaForm.controls.nombre.errors?.pattern">Por
+                  favor, Ingrese el nombre de forma correcta</small>
               </div>
             </form>
           </div>
         </div>
         <div class="mb-3">
-          <input type="radio" id="efectivoButton" name="metodoPago" data-bs-toggle="collapse" data-bs-target="#efectivo:not(.show)"/>
+          <input type="radio" id="efectivoButton" name="metodoPago" data-bs-toggle="collapse"
+            data-bs-target="#efectivo:not(.show)" />
           <label for="efectivoButton">Efectivo</label>
           <div class="collapse" id="efectivo">
-            <form name ="efectivoForm" [formGroup]="efectivoForm">
+            <form name="efectivoForm" [formGroup]="efectivoForm">
               <div class="mb-3 form-group">
                 <input type="text" class="form-control calle" formControlName="monto" placeholder="Monto a pagar" />
-                <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.required">Por favor, ingrese el monto a pagar</small>
-                <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.pattern">Por favor, Ingrese solo números</small>
+                <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.required">Por
+                  favor, ingrese el monto a pagar</small>
+                <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.pattern">Por
+                  favor, Ingrese solo números</small>
                 <br>
-                <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.min">Por favor, ingrese un monto mayor al total del pedido</small>
+                <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.min">Por favor,
+                  ingrese un monto mayor al total del pedido</small>
               </div>
             </form>
           </div>
@@ -132,31 +167,52 @@
     </div>
   </div>
   <div>
-    <button class="btn btn-horario-entrega" type="button" data-bs-toggle="collapse" data-bs-target="#horarioEntrega" aria-controls="collapseExample">
+    <button class="btn btn-horario-entrega" type="button" data-bs-toggle="collapse" data-bs-target="#horarioEntrega"
+      aria-controls="collapseExample">
       Horario de entrega
     </button>
     <div class="collapse" id="horarioEntrega">
       <form [formGroup]="horarioForm">
         <div class="mt-3">
           <div class="mb-3">
-            <input type="radio" id="fecha-hora-persoButton" name="horarioEntrega" data-bs-toggle="collapse" data-bs-target="#fecha-hora-perso:not(.show)" aria-expanded="false" />
+            <input type="radio" id="fecha-hora-persoButton" name="horarioEntrega" data-bs-toggle="collapse"
+              data-bs-target="#fecha-hora-perso:not(.show)" aria-expanded="false" />
             <label for="fecha-hora-persoButton">Fecha y hora personalizado</label>
             <div class="collapse" id="fecha-hora-perso">
-              <label for="fecha" id="fecha">Fecha</label>
-              <input placeholder="dd/mm/aaaa" formControlName="Fecha" ngbDatepicker type="date" id="fecha" class="calendario"/>
+              <label for="fecha">Fecha</label>
+              <input placeholder="dd/mm/aaaa" formControlName="Fecha" ngbDatepicker type="date" id="fecha"
+                class="calendario" />
               <br>
               <label for="hora" class="hora">Hora</label>
-              <input type="time" formControlName="Hora" class="calendario time">
+              <input type="time" formControlName="Hora" class="calendario time" id="hora">
             </div>
           </div>
           <div class="mb-3">
-            <input type="radio" id="ahora" name="horarioEntrega"/>
+            <input type="radio" id="ahora" name="horarioEntrega" />
             <label for="ahora">Lo antes posible</label>
           </div>
         </div>
-      </form>  
+      </form>
     </div>
   </div>
-  <button type="button" class="btn btn-enviar" (click)= "enviar()">Enviar pedido</button>
+  <button type="button" class="btn btn-enviar" data-bs-toggle="modal" data-bs-target="#confirmacion"
+    (click)="mostrarDatos()">Enviar pedido</button>
+  <div id="confirmacion" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pedido Confirmado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="direccionConfirmada"></p>
+          <p id="diaEntrega"></p>
+          <p id="horaEntrega"></p>
+        </div>
+        <div class="modal-footer">
+          <img src="https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.canalgif.net%2FGifs-animados%2FVehiculos-terrestres%2FMotocicletas.asp%3FPage%3D7&psig=AOvVaw34RtJcpANWQC-XUKiR2M5M&ust=1631576811101000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCICq2rnP-vICFQAAAAAdAAAAABAZ" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
