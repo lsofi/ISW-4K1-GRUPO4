@@ -1,0 +1,88 @@
+.fixed{
+  width: 31.25rem;
+  margin-top: 1.563rem;
+  margin-bottom: 1.875rem;
+
+}
+.carrito-card,
+.item-card {
+  border: 0.188rem solid #4ea8de;
+}
+.linea{
+    border: 0.188rem solid #56cfe1;
+    margin-top: -0.188rem;
+}
+.item-card {
+  margin-bottom: 0.625rem;
+}
+.comida {
+  border-radius: 1.75rem;
+}
+.carrito {
+  font-size: 1.188rem;
+  margin-top: 0.313rem;
+  font-weight: bold;
+}
+.comercio{
+    margin-left: 1.188rem;
+    margin-top: 0.625rem;
+}
+.com-adh{
+    margin-top: 1.17rem;
+    margin-left: -1.188rem;
+    font-weight: bolder;
+}
+.prod{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.basurero{
+  border: none;
+  background-color: white;
+}
+
+.linea2{
+    border: 0.188rem solid #56cfe1;
+    margin-top: 1.063rem;
+}
+
+.envio, .total{
+    margin-left: 1.25rem;
+}
+
+.precioEnv, .precioTot{
+    margin-left: 9.438rem;
+}
+
+.total, .precioTot{
+    font-weight: bold;
+}
+
+@media (max-width: 768px){
+  .fixed{
+    margin: auto;
+  }
+}
+@media (min-width: 769px) and (max-width: 1023px){
+  .fixed{
+    margin: auto;
+  }
+}
+
+@media(min-width: 1024px) and (max-width: 1223px){
+  .fixed{
+    float: none;
+  }
+}
+
+@media(min-width: 1224px){
+  .fixed{
+    float: right;
+    margin-right: 100px;
+  }
+}
+
+
+
+

@@ -1,0 +1,261 @@
+.navbar {
+  border-bottom: 0.188rem solid #7400b8;
+}
+
+.mockNavBar{
+    padding-top: 5rem;
+}
+
+.usuario {
+  margin-right: 2.188rem;
+}
+.user-img {
+    margin-left: -1.75rem;
+}
+
+.col-usuario{
+    margin-top: 0.625rem;
+}
+
+.btn-direccion-entrega{
+    background-color: #72EFDD;
+    margin-top: 1.375rem;
+    font-weight: bolder
+}
+.btn-forma-pago{
+    background-color: #72EFDD;
+    margin-top: 1.375rem;
+    font-weight: bolder
+}
+.btn-horario-entrega{
+    background-color: #72EFDD;
+    margin-top: 1.375rem;
+    font-weight: bolder
+}
+
+.calle{
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-color: #4EA8DE;
+    border-width: medium;
+    width: 33.75rem;
+    margin-top: 0.625rem;
+}
+
+.ciudad{
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-color: #4EA8DE;
+    border-width: medium;
+    margin-top: 0.625rem;
+    width: 23.5rem;
+}
+
+#formaDePago{
+    padding-top: 0.938rem;
+    margin-left: 0.625rem;
+}
+small{
+    color: #4EA8DE;
+}
+.pedido{
+    width: 36.25rem;
+    margin-left: 1.5rem;
+}
+
+.btn-mapa{
+    border-color: #4EA8DE;
+    color: #4EA8DE;
+    margin-top: -2.45rem;
+}
+
+.btn-mapa:hover{
+    background-color: #4EA8DE;
+    color: black;
+}
+#mapa{
+    width: 33.75rem;
+    height: 20rem;
+}
+#fecha{
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.calendario{
+    border-color: #4EA8DE;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.hora{
+    margin-right: 0.313rem;
+}
+.time{
+    margin-left: 1.5rem;
+}
+
+.btn-enviar{
+    background-color: #7400b8;
+    color: white;
+    margin-top: 1.563rem;
+}
+
+.time, .hora{
+    margin-top: 0.086rem;
+}
+
+.modal-footer{
+    justify-content: center;
+}
+
+.modal-title{
+    margin-left: 0.938rem;
+    font-weight: bolder;
+}
+
+
+@media (max-width: 1024px){
+    .pedido{
+        margin: auto;
+    }
+
+    .btn-direccion-entrega{
+        padding-left: 1.438rem;
+        padding-right: 22.5rem;
+
+    }
+    .btn-forma-pago{
+        padding-left: 1.438rem;
+        padding-right: 25.188rem;
+    }
+    .btn-horario-entrega{
+        padding-left: 1.438rem;
+        padding-right: 23.5rem;
+    }
+    .btn-mapa{
+        float: right;
+        width: 22%;
+        min-width: fit-content;
+    }
+    .btn-enviar{
+        position: relative;
+        left: 40%;
+    }
+
+} 
+
+@media(min-width: 1025px) and (max-width: 1223px){
+    .pedido{
+        margin: auto;
+    }
+
+    .btn-direccion-entrega{
+        padding-left: 1.438rem;
+        padding-right: 22.5rem;
+
+    }
+    .btn-forma-pago{
+        padding-left: 1.438rem;
+        padding-right: 25.188rem;
+    }
+    .btn-horario-entrega{
+        padding-left: 1.438rem;
+        padding-right: 23.5rem;
+    }
+    .btn-mapa{
+        float: right;
+        width: 22%;
+        min-width: fit-content;
+    }
+    .btn-enviar{
+        position: relative;
+        left: 40%;
+    }
+}
+
+@media (min-width: 1224px) and (max-width: 1629px){
+    .pedido{
+        width: 50%;
+    }
+
+
+    .btn-direccion-entrega{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-forma-pago{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-horario-entrega{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-enviar{
+        margin-bottom: 20px;
+        position: relative;
+        left: 40%;
+        width: 150px;
+    }
+
+    .calle{
+        width: 100%
+    }
+
+    .ciudad{
+        width: 70%
+    }
+
+    .btn-mapa{
+        float: right;
+        width: 22%;
+        min-width: fit-content;
+    }
+
+}
+
+@media (min-width: 1630px){
+    .pedido{
+        margin: auto;
+        margin-left: 6rem;
+        width: 58%;
+    }
+
+
+    .btn-direccion-entrega{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-forma-pago{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-horario-entrega{
+        width: 100%;
+        text-align: left;
+    }
+    .btn-enviar{
+        margin-bottom: 20px;
+        position: relative;
+        left: 40%;
+        width: 150px;
+    }
+
+    .calle{
+        width: 100%
+    }
+
+    .ciudad{
+        width: 70%
+    }
+
+    .btn-mapa{
+        float: right;
+        width: 22%;
+        min-width: fit-content;
+    }
+}
