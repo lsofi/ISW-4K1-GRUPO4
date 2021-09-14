@@ -1,10 +1,7 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Ciudad } from 'src/app/models/ciudad';
-import { DetalleCarrito } from 'src/app/models/detalle-carrito';
 import { CiudadService } from 'src/app/services/ciudad.service';
-import { CarritoComponent } from '../carrito/carrito.component';
 
 @Component({
   selector: 'app-envio-pedido',
@@ -78,13 +75,10 @@ export class EnvioPedidoComponent implements OnInit {
 
   guardarDireccion() {
     const calle = (document.getElementById('calle') as HTMLInputElement).value;
-    console.log(calle);
     const numero = (document.getElementById('numero') as HTMLInputElement)
       .value;
-    console.log(numero);
     const ciudad = (document.getElementById('ciudad') as HTMLSelectElement)
       .value;
-    console.log(ciudad);
     var direccion = `https://www.google.com/maps/embed/v1/place?key=AIzaSyA1CXSj3gyAhTnTgFAAauVkXsxHFq9ZiM8&q=${calle} ${numero} ${ciudad} Argentina`;
     (document.getElementById('mapa') as HTMLIFrameElement).src = direccion;
   }
@@ -111,9 +105,9 @@ export class EnvioPedidoComponent implements OnInit {
 
     if(!this.validarForms()){
       valido = false;
-      this.errorModal("Revise sus datos");
+      var msj = "Verifique los datos ingresados";
+      this.errorModal(msj);
     }
-    console.log(valido);
 
     var ahora = new Date();
 
@@ -131,8 +125,6 @@ export class EnvioPedidoComponent implements OnInit {
       }
     }
 
-    console.log(valido);
-
     if(fechahorapersoButtonCheck.checked){
       var horaEntrega = horarioCopy.Hora + ' ' + horarioCopy.Fecha;
 
@@ -146,14 +138,12 @@ export class EnvioPedidoComponent implements OnInit {
         this.errorModal("Hora de entrega no válida");
       }     
     }
-    console.log(valido);
 
     if(this.Total == 100){
       valido = false;
       this.errorModal("No hay productos en el carrito");
       
     }
-    console.log(valido);
 
     if(!this.validarTarjeta()){
       valido = false;
@@ -219,16 +209,16 @@ export class EnvioPedidoComponent implements OnInit {
     var direccion = calle + ' ' + numero + ', ' + ciudad;
     (
       document.getElementById('direccionConfirmada') as HTMLParagraphElement
-    ).innerText = 'Tu pedido llegará a ' + ' ' + direccion;
+    ).innerHTML = 'Tu pedido llegará a ' + ' ' + '<strong>' + direccion + '</strong>';
 
     if (fechahorapersoButtonCheck.checked){
     var fecha = ((document.getElementById('fecha') as HTMLInputElement).value).split('-');
-    (document.getElementById('diaEntrega') as HTMLParagraphElement).innerText =
-      'El día ' + ' ' + fecha[2] + '/' + fecha[1] + '/' + fecha[0];
+    (document.getElementById('diaEntrega') as HTMLParagraphElement).innerHTML =
+      'El día' + ' ' + '<strong>' + fecha[2] + '/' + fecha[1] + '/' + fecha[0] + '</strong>';
 
     var hora = (document.getElementById('hora') as HTMLInputElement).value;
-    (document.getElementById('horaEntrega') as HTMLParagraphElement).innerText =
-      'Alrededor de las ' + ' ' + hora;
+    (document.getElementById('horaEntrega') as HTMLParagraphElement).innerHTML =
+      'Alrededor de las ' + ' ' + + '<strong>' + hora + '</strong>';
     }
     else{
       var dia = ahora.getDate();
@@ -237,11 +227,11 @@ export class EnvioPedidoComponent implements OnInit {
       var horaYa = ahora.getHours();
       var minutos = ahora.getMinutes();
 
-      (document.getElementById('diaEntrega') as HTMLParagraphElement).innerText =
-      'El día ' + ' ' + dia + '/' + (mes +1) + '/' + año;
+      (document.getElementById('diaEntrega') as HTMLParagraphElement).innerHTML =
+      'El día' + ' ' +  '<strong>' + dia + '/' + (mes +1) + '/' + año + '</strong>';
 
-      (document.getElementById('horaEntrega') as HTMLParagraphElement).innerText =
-      'Alrededor de las ' + ' ' + horaYa + ":" + ((minutos<10?'0':'') + minutos);
+      (document.getElementById('horaEntrega') as HTMLParagraphElement).innerHTML =
+      'Alrededor de las ' + ' ' +  '<strong>' + horaYa + ":" + ((minutos<10?'0':'') + minutos)+ '</strong>';
     }
   }
 
@@ -282,7 +272,7 @@ export class EnvioPedidoComponent implements OnInit {
   }
 
   errorModal(mensaje: string){
-    (document.getElementById("msjError") as HTMLParagraphElement).innerText = mensaje;
+    (document.getElementById("msjError") as HTMLParagraphElement).innerHTML = mensaje;
   }
 
   cerrarModal(){

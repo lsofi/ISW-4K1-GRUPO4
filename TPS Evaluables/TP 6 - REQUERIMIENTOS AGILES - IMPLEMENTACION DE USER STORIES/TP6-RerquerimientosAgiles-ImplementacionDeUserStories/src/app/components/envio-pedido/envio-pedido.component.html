@@ -42,7 +42,7 @@
     <div class="collapse" id="direccionEntrega">
       <form [formGroup]="direccionForm">
         <div class="mb-3 form-group">
-          <input type="text" class="form-control calle" placeholder="Teléfono*" formControlName="telefono"
+          <input type="text" class="form-control calle" placeholder="Teléfono (sin 0 ni 15)*" formControlName="telefono"
             maxlength="10" />
           <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.required">Por
             favor, ingrese el número de telefono</small>
@@ -95,7 +95,7 @@
         <div class="mb-3">
           <input type="radio" id="tarjetaButton" name="metodoPago" data-bs-toggle="collapse"
             data-bs-target="#tarjeta:not(.show)" (click)="ocultarEfectivo()" />
-          <label for="tarjetaButton">Tarjeta</label>
+          <label for="tarjetaButton">&nbsp; Tarjeta</label>
           <div class="collapse" id="tarjeta">
             <form name="tarjetaForm" [formGroup]="tarjetaForm">
               <div class="mb-3 form-group">
@@ -120,7 +120,7 @@
                   favor, ingrese la fecha de vencimiento</small>
                 <small
                   *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.pattern">Por
-                  favor, ingrese la fecha de vencimiento en el formato MM/AAAA</small>
+                  favor, ingrese una fecha válida con formato MM/AAAA</small>
                 <br>
               </div>
               <div class="mb-3 form-group">
@@ -152,7 +152,7 @@
         <div class="mb-3">
           <input type="radio" id="efectivoButton" name="metodoPago" data-bs-toggle="collapse"
             data-bs-target="#efectivo:not(.show)" (click)="ocultarTarjeta()" />
-          <label for="efectivoButton">Efectivo</label>
+          <label for="efectivoButton">&nbsp; Efectivo</label>
           <div class="collapse" id="efectivo">
             <form name="efectivoForm" [formGroup]="efectivoForm">
               <div class="mb-3 form-group">
@@ -183,7 +183,7 @@
           <div class="mb-3">
             <input type="radio" id="fecha-hora-persoButton" name="horarioEntrega" data-bs-toggle="collapse"
               data-bs-target="#fecha-hora-perso:not(.show)" aria-expanded="false" (click)="mostrarPersonalizado()" />
-            <label for="fecha-hora-persoButton">Fecha y hora personalizado</label>
+            <label for="fecha-hora-persoButton"> &nbsp; Fecha y hora personalizado</label>
             <div class="collapse" id="fecha-hora-perso">
               <label for="fecha">Fecha</label>
               <input placeholder="dd/mm/aaaa" formControlName="Fecha" ngbDatepicker type="date" id="fecha"
@@ -195,7 +195,7 @@
           </div>
           <div class="mb-3">
             <input type="radio" id="ahora" name="horarioEntrega" (click)="ocultarPersonalizado()" />
-            <label for="ahora">Lo antes posible</label>
+            <label for="ahora"> &nbsp; Lo antes posible</label>
           </div>
         </div>
       </form>
@@ -207,6 +207,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
+          <img src="https://i.imgur.com/6puJN8k.png" height="40px" width="40px">
           <h5 class="modal-title">Pedido Confirmado</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarModal()"></button>
         </div>
@@ -225,6 +226,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
+          <img src="https://i.imgur.com/EsiQflP.png" height="40px" width="40px">
           <h5 class="modal-title">Error</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarModal()"></button>
         </div>

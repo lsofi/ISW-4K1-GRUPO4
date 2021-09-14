@@ -92,7 +92,6 @@ small{
 }
 
 .hora{
-    margin-left: 1rem;
     margin-right: 0.313rem;
 }
 .time{
@@ -111,6 +110,11 @@ small{
 
 .modal-footer{
     justify-content: center;
+}
+
+.modal-title{
+    margin-left: 0.938rem;
+    font-weight: bolder;
 }
 
 
