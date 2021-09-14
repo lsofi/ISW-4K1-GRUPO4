@@ -218,7 +218,7 @@ export class EnvioPedidoComponent implements OnInit {
 
     var hora = (document.getElementById('hora') as HTMLInputElement).value;
     (document.getElementById('horaEntrega') as HTMLParagraphElement).innerHTML =
-      'Alrededor de las ' + ' ' + + '<strong>' + hora + '</strong>';
+      'Alrededor de las ' + ' ' + '<strong>' + hora + '</strong>';
     }
     else{
       var dia = ahora.getDate();
