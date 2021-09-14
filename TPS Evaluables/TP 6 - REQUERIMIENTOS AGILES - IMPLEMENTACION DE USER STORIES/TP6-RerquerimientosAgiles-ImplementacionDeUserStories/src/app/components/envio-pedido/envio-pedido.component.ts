@@ -132,11 +132,24 @@ export class EnvioPedidoComponent implements OnInit {
 
       if (
         fechaEntrega < this.agregarHoras(ahora, 1) ||
-        fechaEntrega > this.agregarDias(ahora, 7) || !this.validarHorario(fechaEntrega)
+        fechaEntrega > this.agregarDias(ahora, 7)
       ){
         valido = false;
-        this.errorModal("Hora de entrega no válida");
+        this.errorModal("Horario de entrega no válido, se puede solicitar un horario de envío personalizado a partir de una hora hasta dentro de una semana");
+      }
+      else{
+        if(!this.validarHorario(fechaEntrega, 8)){
+          valido = false;
+          this.errorModal("Hora de entrega no válida, se puede solicitar un horario de envío personalizado desde las 8hs hasta las 23:59hs");
+        }
       }     
+    }
+    else{
+      var ahora = new Date();
+      if(!this.validarHorario(ahora, 8)){
+        valido = false;
+        this.errorModal("Horario no válido, se pueden realizar pedidos desde las 8hs hasta las 23:59hs")
+      }
     }
 
     if(this.Total == 100){
@@ -284,9 +297,9 @@ export class EnvioPedidoComponent implements OnInit {
     return true;
   }
 
-  validarHorario(fecha: Date){
+  validarHorario(fecha: Date, min: number){
     var hora = fecha.getHours()
-    return (hora >= 8)
+    return (hora >= min)
   }
 
 }

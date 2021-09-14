@@ -47,7 +47,7 @@
           <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.required">Por
             favor, ingrese el número de telefono</small>
           <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.pattern">Por
-            favor, ingrese el número de telefono de manera correcta</small>
+            favor, ingrese el número de telefono de manera correcta <br></small>
           <small *ngIf="direccionForm.controls.telefono.touched && direccionForm.controls.telefono.errors?.minlength">La
             cantidad mínima de dígitos es 10</small>
         </div>
@@ -55,7 +55,6 @@
           <input type="text" class="form-control calle" placeholder="Calle*" id="calle" formControlName="calle" />
           <small *ngIf="direccionForm.controls.calle.touched && direccionForm.controls.calle.errors?.required">Por
             favor, ingrese el nombre de la calle</small>
-
         </div>
         <div class="mb-3">
           <input type="text" class="form-control calle" placeholder="Número*" id="numero" formControlName="numero" />
@@ -106,8 +105,7 @@
                   favor, ingrese el número de la tarjeta</small>
                 <small
                   *ngIf="tarjetaForm.controls.numeroTarjeta.touched && tarjetaForm.controls.numeroTarjeta.errors?.pattern">Por
-                  favor, ingrese número de tarjeta Visa</small>
-                <br>
+                  favor, ingrese número de tarjeta Visa<br></small>
                 <small
                   *ngIf="tarjetaForm.controls.numeroTarjeta.touched && tarjetaForm.controls.numeroTarjeta.errors?.minlength">El
                   número mínimo es de solo 16 dígitos</small>
@@ -120,8 +118,7 @@
                   favor, ingrese la fecha de vencimiento</small>
                 <small
                   *ngIf="tarjetaForm.controls.fechaVencimiento.touched && tarjetaForm.controls.fechaVencimiento.errors?.pattern">Por
-                  favor, ingrese una fecha válida con formato MM/AAAA</small>
-                <br>
+                  favor, ingrese una fecha válida con formato MM/AAAA<br></small>
               </div>
               <div class="mb-3 form-group">
                 <input type="text" id="inputCodSeguridad" class="form-control calle" formControlName="numeroCVVD"
@@ -131,8 +128,7 @@
                   favor, ingrese el código de seguridad</small>
                 <small
                   *ngIf="tarjetaForm.controls.numeroCVVD.touched && tarjetaForm.controls.numeroCVVD.errors?.pattern">Por
-                  favor, Ingrese sólo números</small>
-                <br>
+                  favor, Ingrese sólo números<br></small>
                 <small
                   *ngIf="tarjetaForm.controls.numeroCVVD.touched && tarjetaForm.controls.numeroCVVD.errors?.minlength">El
                   número mínimo es de 3 dígitos</small>
@@ -161,8 +157,7 @@
                 <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.required">Por
                   favor, ingrese el monto a pagar</small>
                 <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.pattern">Por
-                  favor, Ingrese solo números</small>
-                <br>
+                  favor, Ingrese solo números<br></small>
                 <small *ngIf="efectivoForm.controls.monto.touched && efectivoForm.controls.monto.errors?.min">Por favor,
                   ingrese un monto mayor al total del pedido</small>
               </div>
