@@ -20,6 +20,16 @@ export class CarritoComponent implements OnInit {
   total: number = 0;
   constructor(private productosService: ProductosService,
     private carritosService: CarritoService) { }
+ 
+  eliminarItem(item: DetalleCarrito){
+    var pos = this.Items.indexOf(item);
+    
+    this.Items.splice(pos, 1);
+    this.total -= item.producto.precioUnitario * item.cantidad;
+    
+    (document.getElementsByClassName("precioTot").item(0) as HTMLElement).innerText = "$" + this.total;
+    this.pasarData.emit(this.total);
+  }
 
   ngOnInit() {
     this.carritosService.get().subscribe((res:Carrito[]) =>{
@@ -33,16 +43,4 @@ export class CarritoComponent implements OnInit {
     this.total = tot + 100;
     this.pasarData.emit(this.total);
   }
-  
-
-  eliminarItem(item: DetalleCarrito){
-    var pos = this.Items.indexOf(item);
-    
-    this.Items.splice(pos, 1);
-    this.total -= item.producto.precioUnitario * item.cantidad;
-    
-    (document.getElementsByClassName("precioTot").item(0) as HTMLElement).innerText = "$" + this.total;
-    this.pasarData.emit(this.total);
-  }
-
 }

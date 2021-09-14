@@ -67,24 +67,21 @@ export class EnvioPedidoComponent implements OnInit {
     this.getCiudades();
   }
 
-  getCiudades() {
-    this.ciudadService.get().subscribe((res: Ciudad[]) => {
-      this.ciudades = res;
-    });
+  agregarDias(fecha: Date, dias: number) {
+    var milisegundos = fecha.getTime();
+    var agregarMs = dias * 24 * 60 * 60 * 1000;
+    return new Date(milisegundos + agregarMs);
   }
 
-  guardarDireccion() {
-    const calle = (document.getElementById('calle') as HTMLInputElement).value;
-    const numero = (document.getElementById('numero') as HTMLInputElement)
-      .value;
-    const ciudad = (document.getElementById('ciudad') as HTMLSelectElement)
-      .value;
-    var direccion = `https://www.google.com/maps/embed/v1/place?key=AIzaSyA1CXSj3gyAhTnTgFAAauVkXsxHFq9ZiM8&q=${calle} ${numero} ${ciudad} Argentina`;
-    (document.getElementById('mapa') as HTMLIFrameElement).src = direccion;
+  agregarHoras(fecha: Date, horas: number) {
+    var milisegundos = fecha.getTime();
+    var agregarMs = horas * 60 * 60 * 1000;
+    return new Date(milisegundos + agregarMs);
   }
 
-  mostrarMapa() {
-    (document.getElementById('mapa') as HTMLIFrameElement).style.display = '';
+  cerrarModal(){
+    (document.getElementById("error") as HTMLDivElement).style.display = "none";
+    (document.getElementById("confirmacion") as HTMLDivElement).style.display = "none";
   }
 
   enviar() {
@@ -174,37 +171,24 @@ export class EnvioPedidoComponent implements OnInit {
     this.mostrarDatos();
   }
 
-  agregarHoras(fecha: Date, horas: number) {
-    var milisegundos = fecha.getTime();
-    var agregarMs = horas * 60 * 60 * 1000;
-    return new Date(milisegundos + agregarMs);
+  errorModal(mensaje: string){
+    (document.getElementById("msjError") as HTMLParagraphElement).innerHTML = mensaje;
   }
 
-  agregarDias(fecha: Date, dias: number) {
-    var milisegundos = fecha.getTime();
-    var agregarMs = dias * 24 * 60 * 60 * 1000;
-    return new Date(milisegundos + agregarMs);
+  getCiudades() {
+    this.ciudadService.get().subscribe((res: Ciudad[]) => {
+      this.ciudades = res;
+    });
   }
 
-  validarForms() {
-    var tarjetaCheck = document.getElementById(
-      'tarjetaButton'
-    ) as HTMLInputElement;
-    var efectivoCheck = document.getElementById(
-      'efectivoButton'
-    ) as HTMLInputElement;
-    var fechahorapersoButtonCheck = document.getElementById(
-      'fecha-hora-persoButton'
-    ) as HTMLInputElement;
-    var ahoraCheck = document.getElementById('ahora') as HTMLInputElement;
-
-    return (
-      ((this.tarjetaForm.valid && tarjetaCheck.checked) ||
-        (this.efectivoForm.valid && efectivoCheck.checked)) &&
-      this.direccionForm.valid &&
-      ((this.horarioForm.valid && fechahorapersoButtonCheck.checked) ||
-        ahoraCheck.checked)
-    );
+  guardarDireccion() {
+    const calle = (document.getElementById('calle') as HTMLInputElement).value;
+    const numero = (document.getElementById('numero') as HTMLInputElement)
+      .value;
+    const ciudad = (document.getElementById('ciudad') as HTMLSelectElement)
+      .value;
+    var direccion = `https://www.google.com/maps/embed/v1/place?key=AIzaSyA1CXSj3gyAhTnTgFAAauVkXsxHFq9ZiM8&q=${calle} ${numero} ${ciudad} Argentina`;
+    (document.getElementById('mapa') as HTMLIFrameElement).src = direccion;
   }
 
   mostrarDatos() {
@@ -248,18 +232,21 @@ export class EnvioPedidoComponent implements OnInit {
     }
   }
 
+  mostrarMapa() {
+    (document.getElementById('mapa') as HTMLIFrameElement).style.display = '';
+  }
+
+  mostrarPersonalizado() {
+    (
+      document.getElementById('fecha-hora-perso') as HTMLDivElement
+    ).style.display = '';
+  }
+
   ocultarEfectivo() {
     (document.getElementById('efectivo') as HTMLDivElement).style.display =
       'none';
     (document.getElementById('tarjeta') as HTMLDivElement).style.display = '';
     this.efectivoForm.reset();
-  }
-
-  ocultarTarjeta() {
-    (document.getElementById('tarjeta') as HTMLDivElement).style.display =
-      'none';
-    (document.getElementById('efectivo') as HTMLDivElement).style.display = '';
-    this.tarjetaForm.reset();
   }
 
   ocultarPersonalizado() {
@@ -269,10 +256,11 @@ export class EnvioPedidoComponent implements OnInit {
     this.horarioForm.reset;
   }
 
-  mostrarPersonalizado() {
-    (
-      document.getElementById('fecha-hora-perso') as HTMLDivElement
-    ).style.display = '';
+  ocultarTarjeta() {
+    (document.getElementById('tarjeta') as HTMLDivElement).style.display =
+      'none';
+    (document.getElementById('efectivo') as HTMLDivElement).style.display = '';
+    this.tarjetaForm.reset();
   }
 
   pasarData(data: any) {
@@ -284,22 +272,33 @@ export class EnvioPedidoComponent implements OnInit {
     this.efectivoForm.reset();
   }
 
-  errorModal(mensaje: string){
-    (document.getElementById("msjError") as HTMLParagraphElement).innerHTML = mensaje;
-  }
-
-  cerrarModal(){
-    (document.getElementById("error") as HTMLDivElement).style.display = "none";
-    (document.getElementById("confirmacion") as HTMLDivElement).style.display = "none";
-  }
-
-  validarTarjeta(){
-    return true;
-  }
-
   validarHorario(fecha: Date, min: number){
     var hora = fecha.getHours()
     return (hora >= min)
   }
 
+  validarForms() {
+    var tarjetaCheck = document.getElementById(
+      'tarjetaButton'
+    ) as HTMLInputElement;
+    var efectivoCheck = document.getElementById(
+      'efectivoButton'
+    ) as HTMLInputElement;
+    var fechahorapersoButtonCheck = document.getElementById(
+      'fecha-hora-persoButton'
+    ) as HTMLInputElement;
+    var ahoraCheck = document.getElementById('ahora') as HTMLInputElement;
+
+    return (
+      ((this.tarjetaForm.valid && tarjetaCheck.checked) ||
+        (this.efectivoForm.valid && efectivoCheck.checked)) &&
+      this.direccionForm.valid &&
+      ((this.horarioForm.valid && fechahorapersoButtonCheck.checked) ||
+        ahoraCheck.checked)
+    );
+  }
+
+  validarTarjeta(){
+    return true;
+  }
 }
