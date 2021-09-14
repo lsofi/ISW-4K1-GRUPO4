@@ -109,7 +109,7 @@ export class EnvioPedidoComponent implements OnInit {
       this.errorModal(msj);
     }
 
-    var ahora = new Date();
+    var ahora = new Date(new Date().toLocaleString("en-US", {timeZone:"America/Buenos_Aires"}));
 
     if(tarjetaCheck.checked){
       var fechaVencimiento = tarjetaCopy.fechaVencimiento.split('/');
@@ -145,7 +145,7 @@ export class EnvioPedidoComponent implements OnInit {
       }     
     }
     else{
-      var ahora = new Date();
+      var ahora = new Date(new Date().toLocaleString("en-US", {timeZone:"America/Buenos_Aires"}));
       if(!this.validarHorario(ahora, 8)){
         valido = false;
         this.errorModal("Horario no válido, se pueden realizar pedidos desde las 8hs hasta las 23:59hs")
@@ -213,7 +213,7 @@ export class EnvioPedidoComponent implements OnInit {
       'fecha-hora-persoButton'
     ) as HTMLInputElement;
     
-    var ahora = new Date();
+    var ahora = new Date(new Date().toLocaleString("en-US", {timeZone:"America/Buenos_Aires"}));
     ahora = this.agregarHoras(ahora,1);
 
     var calle = (document.getElementById('calle') as HTMLInputElement).value;
